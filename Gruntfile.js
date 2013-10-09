@@ -94,12 +94,18 @@ module.exports = function (grunt) {
       }
     }
   });
+  
+  grunt.registerTask('init', function() {
+    grunt.log.writeln('Initial project');
+    return (grunt.file.exists('<%= project.app %>/vendor')) || grunt.task.run('bower:install');
+  });
 
   /**
    * Default task
    * Run `grunt` on the command line
    */
   grunt.registerTask('default', [
+    'init',
     'compass:dev',
     'open:server',
     'watch'

@@ -1,0 +1,7 @@
+{
+  "dependencies": {
+    "jquery": "~1.10.*",
+    "modernizr": "~2.6.*",
+    "easy-files": "https://github.com/sharenjoy/easy-files.git#~1.0.0"
+  }
+}

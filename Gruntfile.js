@@ -29,6 +29,25 @@ module.exports = function (grunt) {
       port: 80
     },
 
+    bower: {
+      install: {
+        options: {
+          cleanup: false,
+          install: true,
+          verbose: true,
+          copy: false
+        }
+      },
+      cleanup: {
+        options: {
+          cleanup: true,
+          verbose: true,
+          install: false,
+          copy: false
+        }
+      }
+    },
+
     compass: {
       dev: {
         options: {

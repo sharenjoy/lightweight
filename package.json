@@ -1,0 +1,16 @@
+{
+  "name": "lightweight",
+  "title": "",
+  "url" : "",
+  "author": "",
+  "copyright": "2013",
+  "version": "1.0.0",
+  "license": "MIT",
+  "devDependencies": {
+    "grunt": "~0.4.1",
+    "grunt-contrib-compass": "~0.5.0",
+    "grunt-contrib-watch": "~0.4.4",
+    "load-grunt-tasks": "~0.1.0",
+    "grunt-open": "~0.2.0"
+  }
+}

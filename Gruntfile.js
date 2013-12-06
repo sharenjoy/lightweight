@@ -51,7 +51,7 @@ module.exports = function (grunt) {
     compass: {
       dev: {
         options: {
-          sassDir: '<%= project.app %>/sass',
+          sassDir: '<%= project.app %>/scss',
           cssDir: '<%= project.app %>/css',
           imagesDir: '<%= project.app %>/images',
           javascriptsDir: '<%= project.app %>/js',
@@ -62,10 +62,10 @@ module.exports = function (grunt) {
           environment: 'development'
         }
       },
-      release: {
+      production: {
         options: {
           force: true,
-          sassDir: '<%= project.app %>/sass',
+          sassDir: '<%= project.app %>/scss',
           cssDir: '<%= project.app %>/css',
           imagesDir: '<%= project.app %>/images',
           javascriptsDir: '<%= project.app %>/js',
@@ -128,6 +128,20 @@ module.exports = function (grunt) {
     'compass:dev',
     'open:server',
     'watch'
+  ]);
+
+  /**
+   * Build for development
+   */
+  grunt.registerTask('build:dev', [
+    'compass:dev'
+  ]);
+
+  /**
+   * Build for production
+   */
+  grunt.registerTask('build:production', [
+    'compass:production'
   ]);
 
 };

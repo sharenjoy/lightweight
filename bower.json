@@ -4,6 +4,8 @@
   "dependencies": {
     "jquery": "~1.10.*",
     "modernizr": "~2.6.*",
+    "sass-bootstrap": "~3.0.2",
+    "font-awesome": "~4.0.3",
     "easy-files": "https://github.com/sharenjoy/easy-files.git#~1.0.0"
   }
 }

@@ -48,6 +48,44 @@ module.exports = function (grunt) {
       }
     },
 
+    copy: {
+      dev: {
+        files: [
+          /*{
+            expand: true,
+            cwd: '<%= project.app %>/vendor/easy-files/',
+            src: ['**'],
+            dest: '<%= project.app %>/'
+          },*/ {
+            expand: true,
+            cwd: '<%= project.app %>/vendor/sass-bootstrap/dist/js/',
+            src: ['**'],
+            dest: '<%= project.app %>/js/'
+          }, {
+            expand: true,
+            cwd: '<%= project.app %>/vendor/sass-bootstrap/dist/fonts/',
+            src: ['**'],
+            dest: '<%= project.app %>/fonts/'
+          }, {
+            expand: true,
+            cwd: '<%= project.app %>/vendor/sass-bootstrap/lib/',
+            src: ['**'],
+            dest: '<%= project.app %>/scss/bootstrap/'
+          }, {
+            expand: true,
+            cwd: '<%= project.app %>/vendor/font-awesome/css/',
+            src: ['**'],
+            dest: '<%= project.app %>/css/'
+          }, {
+            expand: true,
+            cwd: '<%= project.app %>/vendor/font-awesome/fonts/',
+            src: ['**'],
+            dest: '<%= project.app %>/fonts/'
+          }
+        ]
+      }
+    },
+
     compass: {
       dev: {
         options: {
@@ -96,7 +134,7 @@ module.exports = function (grunt) {
      */
     watch: {
       sass: {
-        files: ['<%= project.app %>/**/*.scss'],
+        files: ['<%= project.app %>/scss/**/*.scss'],
         tasks: ['compass:dev'],
         options: {
           livereload: true
@@ -108,7 +146,7 @@ module.exports = function (grunt) {
           port: '<%=project.port %>'
         },
         files: [
-          '<%= project.app %>/**/*.{php,htm,html,png,jpg,jpeg,gif}'
+          '<%= project.app %>/**/*.{css,php,htm,html,png,jpg,jpeg,gif}'
         ]
       }
     }
@@ -125,22 +163,32 @@ module.exports = function (grunt) {
    */
   grunt.registerTask('default', [
     'init',
+    'copy:dev',
     'compass:dev',
     'open:server',
     'watch'
   ]);
 
   /**
+   * Install bower
+   */
+  grunt.registerTask('install', [
+    'bower:install'
+  ]);
+
+  /**
    * Build for development
    */
-  grunt.registerTask('build:dev', [
-    'compass:dev'
+  grunt.registerTask('dev', [
+    'compass:dev',
+    'open:server',
+    'watch'
   ]);
 
   /**
    * Build for production
    */
-  grunt.registerTask('build:production', [
+  grunt.registerTask('pro', [
     'compass:production'
   ]);
 

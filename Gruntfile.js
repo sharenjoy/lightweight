@@ -122,7 +122,7 @@ module.exports = function (grunt) {
     open: {
       server: {
         path: 'http://localhost/<%= pkg.name %>/<%= project.app %>',
-        app: 'Safari'
+        app: 'Firefox'
       }
     },
 
@@ -140,15 +140,22 @@ module.exports = function (grunt) {
           livereload: true
         }
       },
-      livereload: {
+      html: {
+        files: ['<%= project.app %>/*.{html,htm}'],
         options: {
-          livereload: true,
-          port: '<%=project.port %>'
-        },
-        files: [
-          '<%= project.app %>/**/*.{css,php,htm,html,png,jpg,jpeg,gif}'
-        ]
+          livereload: true
+        }
       }
+      // ,
+      // livereload: {
+      //   options: {
+      //     livereload: true,
+      //     port: '<%=project.port %>'
+      //   },
+      //   files: [
+      //     '<%= project.app %>/**/*.{css,php,htm,html,png,jpg,jpeg,gif}'
+      //   ]
+      // }
     }
   });
   

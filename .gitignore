@@ -1,6 +1,5 @@
 .DS_Store
 .sass-cache/
-app/
 assets/
 node_modules/
 public/

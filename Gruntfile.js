@@ -26,6 +26,9 @@ module.exports = function (grunt) {
      */
     project: {
       app: 'app',
+      work: 'vendor/sharenjoy/cmsharenjoy/src',
+      asset: 'assets',
+      root: 'public',
       port: 80
     },
 
@@ -53,34 +56,34 @@ module.exports = function (grunt) {
         files: [
           /*{
             expand: true,
-            cwd: '<%= project.app %>/vendor/easy-files/',
+            cwd: '<%= project.asset %>/vendor/easy-files/',
             src: ['**'],
-            dest: '<%= project.app %>/'
+            dest: '<%= project.root %>/'
           },*/ {
             expand: true,
-            cwd: '<%= project.app %>/vendor/sass-bootstrap/dist/js/',
+            cwd: '<%= project.asset %>/vendor/bootstrap-sass-official/vendor/assets/javascripts/',
             src: ['**'],
-            dest: '<%= project.app %>/js/'
+            dest: '<%= project.root %>/js/'
           }, {
             expand: true,
-            cwd: '<%= project.app %>/vendor/sass-bootstrap/dist/fonts/',
+            cwd: '<%= project.asset %>/vendor/bootstrap-sass-official/vendor/assets/fonts/bootstrap/',
             src: ['**'],
-            dest: '<%= project.app %>/fonts/'
+            dest: '<%= project.root %>/fonts/'
           }, {
             expand: true,
-            cwd: '<%= project.app %>/vendor/sass-bootstrap/lib/',
+            cwd: '<%= project.asset %>/vendor/bootstrap-sass-official/vendor/assets/stylesheets/bootstrap',
             src: ['**'],
-            dest: '<%= project.app %>/scss/bootstrap/'
+            dest: '<%= project.root %>/scss/bootstrap/'
           }, {
             expand: true,
-            cwd: '<%= project.app %>/vendor/font-awesome/css/',
+            cwd: '<%= project.asset %>/vendor/font-awesome/css/',
             src: ['**'],
-            dest: '<%= project.app %>/css/'
+            dest: '<%= project.root %>/css/font-awesome/'
           }, {
             expand: true,
-            cwd: '<%= project.app %>/vendor/font-awesome/fonts/',
+            cwd: '<%= project.asset %>/vendor/font-awesome/fonts/',
             src: ['**'],
-            dest: '<%= project.app %>/fonts/'
+            dest: '<%= project.root %>/fonts/'
           }
         ]
       }
@@ -89,10 +92,10 @@ module.exports = function (grunt) {
     compass: {
       dev: {
         options: {
-          sassDir: '<%= project.app %>/scss',
-          cssDir: '<%= project.app %>/css',
-          imagesDir: '<%= project.app %>/images',
-          javascriptsDir: '<%= project.app %>/js',
+          sassDir: '<%= project.root %>/scss',
+          cssDir: '<%= project.root %>/css',
+          imagesDir: '<%= project.root %>/images',
+          javascriptsDir: '<%= project.root %>/js',
           outputStyle: 'expanded',    //# output_style = :expanded or :nested or :compact or :compressed
           relativeAssets: true,
           noLineComments: true,
@@ -103,10 +106,10 @@ module.exports = function (grunt) {
       production: {
         options: {
           force: true,
-          sassDir: '<%= project.app %>/scss',
-          cssDir: '<%= project.app %>/css',
-          imagesDir: '<%= project.app %>/images',
-          javascriptsDir: '<%= project.app %>/js',
+          sassDir: '<%= project.root %>/scss',
+          cssDir: '<%= project.root %>/css',
+          imagesDir: '<%= project.root %>/images',
+          javascriptsDir: '<%= project.root %>/js',
           outputStyle: 'compressed',
           relativeAssets: true,
           noLineComments: true,
@@ -121,8 +124,8 @@ module.exports = function (grunt) {
      */
     open: {
       server: {
-        path: 'http://localhost/<%= pkg.name %>/<%= project.app %>',
-        app: 'Firefox'
+        path: 'http://<%= pkg.name %>/',
+        app: 'Google Chrome'    //Google Chrome, Firefox, Safari
       }
     },
 
@@ -134,14 +137,20 @@ module.exports = function (grunt) {
      */
     watch: {
       sass: {
-        files: ['<%= project.app %>/scss/**/*.scss'],
+        files: ['<%= project.root %>/scss/**/*.scss'],
         tasks: ['compass:dev'],
         options: {
           livereload: true
         }
       },
       html: {
-        files: ['<%= project.app %>/*.{html,htm}'],
+        files: ['<%= project.root %>/*.{html,htm}'],
+        options: {
+          livereload: true
+        }
+      },
+      php: {
+        files: ['<%= project.work %>/**/*.php'],
         options: {
           livereload: true
         }
@@ -153,7 +162,7 @@ module.exports = function (grunt) {
       //     port: '<%=project.port %>'
       //   },
       //   files: [
-      //     '<%= project.app %>/**/*.{css,php,htm,html,png,jpg,jpeg,gif}'
+      //     '<%= project.root %>/**/*.{css,php,htm,html,png,jpg,jpeg,gif}'
       //   ]
       // }
     }
@@ -161,7 +170,7 @@ module.exports = function (grunt) {
   
   grunt.registerTask('init', function() {
     grunt.log.writeln('Initial project');
-    return (grunt.file.exists('<%= project.app %>/vendor')) || grunt.task.run('bower:install');
+    return (grunt.file.exists('<%= project.asset %>/vendor')) || grunt.task.run('bower:install');
   });
 
   /**

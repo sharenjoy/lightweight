@@ -26,7 +26,7 @@ module.exports = function (grunt) {
      */
     project: {
       app: 'app',
-      work: 'vendor/sharenjoy/cmsharenjoy/src',
+      php: 'public',
       asset: 'assets',
       root: 'public',
       port: 80
@@ -124,8 +124,8 @@ module.exports = function (grunt) {
      */
     open: {
       server: {
-        path: 'http://<%= pkg.name %>/',
-        app: 'Google Chrome'    //Google Chrome, Firefox, Safari
+        path: 'http://localhost/<%= pkg.name %>/<%= project.root %>',
+        app: 'Firefox'    //Google Chrome, Firefox, Safari
       }
     },
 
@@ -150,7 +150,7 @@ module.exports = function (grunt) {
         }
       },
       php: {
-        files: ['<%= project.work %>/**/*.php'],
+        files: ['<%= project.php %>/**/*.php'],
         options: {
           livereload: true
         }

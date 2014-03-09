@@ -1,0 +1,54 @@
+//
+// Bases
+// --------------------------------------------------
+
+
+body {
+    -webkit-font-smoothing: antialiased;
+}
+
+// Links
+
+a {
+    text-decoration: none;
+
+    &:hover,
+    &:focus {
+        text-decoration: none;
+    }
+}
+
+// Horizontal rules
+
+// hr {
+//   margin-top:    $line-height-computed;
+//   margin-bottom: $line-height-computed;
+//   border: 0;
+//   border-top: 1px solid $hr-border;
+// }
+
+.container {
+    width: $container-width;
+}
+
+.tblue {
+    color: $brand-primary;
+}
+
+.top {
+    background:#555 url('../images/back.jpg') repeat;
+    border-bottom:1px solid #000;
+}
+
+.inner-page {
+    padding-top:0px !important;
+    padding-bottom:10px;
+}
+
+
+/* Tablets */
+@media (max-width: 991px){
+    .container{
+        width:100%;
+    }
+}

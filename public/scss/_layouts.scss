@@ -1,0 +1,378 @@
+//
+// Layouts
+// --------------------------------------------------
+
+header{
+    background-color:rgba(0,0,0,0.3);
+    height:80px;
+    margin-bottom:15px;
+    border-bottom:1px solid #000;
+
+    .logo { 
+        h1 {
+            font-size:40px;
+            line-height:45px;
+            color:#fff;
+            font-family: 'Lobster Two', cursive;
+            text-shadow:1px 1px 1px #777;
+        }
+        a {
+            color:#fff;
+            padding-left:10px;
+        }
+    }
+
+    .navigation a{
+        color:#fff;
+        font-size:15px;
+        font-weight:bold;
+        line-height:80px;
+        margin-right:15px;
+        background-color: rgba(0,0,0,0.3);
+        padding:10px 15px;
+        // compass effect
+        @include border-radius(5px);
+        @include transition-property(background);
+        @include transition-duration(1s);
+
+        &:hover {
+            color:#fff;
+            background:#333;
+        }
+
+        @media (max-width: $screen-xs-max) {
+            margin-right:7px;
+            margin-left:7px;
+            line-height:50px;
+        }
+    }
+
+    @media (max-width: $screen-xs-max) {
+        padding-bottom:15px;
+    }
+}
+
+/* Tablets */
+@media (max-width: $screen-sm-max){
+    header{
+        height:auto;
+
+        .logo {
+            text-align:center;
+        }
+
+        .navigation{
+            float:none !important;
+            text-align:center;
+        }
+    }
+}
+
+
+// hero
+// -------------------------
+
+.hero{
+    padding-top:20px;
+    
+    .shot img {
+        width: 300px;
+        height: auto;
+        margin: 0 auto;
+    }
+
+    .intro {
+        h2 {
+            color:#fff;
+            font-size:40px;
+            text-transform:uppercase;
+            font-weight:bold;
+        }
+
+        p {
+            color:#eee;
+            font-size:22px;
+        }
+
+        a.download{
+            color:#fff;
+            display:inline-block;
+            font-size:17px;
+            font-weight:bold;
+            padding:0px 25px;
+            background: $brand-primary;
+            line-height:50px;
+            // Compass effect
+            @include border-radius(5px);
+            @include single-box-shadow(rgba(black, 0.3), 1px, 1px, 5px);
+            @include transition-property(background);
+            @include transition-duration(1s);
+            
+            &:hover{
+                background: #1c97dd;
+            }
+        }
+
+        strong{
+            color:#fff;
+            font-size:15px;
+            margin-left:5px;
+        }
+
+        .applinks{
+            margin-top:15px;
+        }
+
+        .applinks a{
+            color:#fff;
+            font-size:20px;
+            padding:10px 15px;
+            line-height:60px;
+            margin-right:10px;
+            background:rgba(black, 0.3);
+            // Compass effect
+            @include border-radius(40px);
+            @include box-shadow(#000 0 0 3px inset);
+            @include transition-property(background);
+            @include transition-duration(1s);
+
+            &:hover{
+                text-decoration:none;
+                background:rgba(black, 0.5);
+            }
+        }
+    }
+}
+
+/* Tablets */
+@media (max-width: 991px){
+  
+  .hero .intro{
+    text-align:center;
+    max-width:500px;
+    margin:0px auto;
+  }
+  
+  .hero .applinks {
+    margin-bottom:25px;
+  }
+}
+
+
+// features
+// -------------------------
+.features{
+    background:#eee url('../images/featureback1.png') repeat;
+    padding-top:40px;
+    padding-bottom:60px;
+    border-bottom:1px solid #ddd;
+}
+
+.features .feature-title h3{
+    font-family: 'Lobster Two', cursive;
+    font-size:45px;
+    font-weight:400 !important;
+    color:#555;
+}
+
+.features .feature-title p{
+    font-size:15px;
+    line-height:30px;
+    font-weight:normal;
+    color:#555;
+    font-family: 'Droid Serif', serif;
+    font-style:italic;
+    max-width:700px;
+    margin:0px auto;
+    margin-bottom:20px;
+}
+
+.features hr{
+    margin-top:25px;
+    margin-bottom:35px;
+}
+
+.features .feat{
+    text-align:center;
+    color:#888;
+    -webkit-transition: color 1s ease;
+   -moz-transition: color 1s ease;
+   -o-transition: color 1s ease;
+   -ms-transition: color 1s ease;
+   transition: color 1s ease;
+   cursor:pointer;
+}
+
+.features .feat:hover{
+    color:#444;
+    -webkit-transition: color 1s ease;
+   -moz-transition: color 1s ease;
+   -o-transition: color 1s ease;
+   -ms-transition: color 1s ease;
+   transition: color 1s ease;
+}
+
+.features .feat i{
+    font-size:30px;
+}
+
+.features .feat h4{
+    color:#666;
+    font-weight:400 !important;
+}
+
+.features .feat p{
+    font-size:14px;
+    line-height:28px;
+    font-weight:normal;
+    font-style:italic;
+    font-family: 'Droid Serif', serif;
+}
+
+/* Tablets */
+@media (max-width: 991px){
+  .features .feat{
+    margin-bottom:30px;
+  }
+  
+  .features .feat p{
+    max-width:200px;
+    margin:0px auto;
+  }
+}
+
+
+// shots
+// -------------------------
+
+.shots{
+    padding-top:60px;
+    padding-bottom:60px;
+}
+
+.shots .screenshot img{
+    width:300px;
+    margin:0px auto;
+}
+
+.shots .shotcontent h3{
+    font-size:35px;
+    border-bottom:1px solid #eee;
+    padding-bottom:15px;
+    margin-bottom:15px;
+}
+
+.shots .shotcontent p.shot-para{
+    font-size:16px;
+    font-style:italic;
+    font-family: 'Droid Serif', serif;
+    font-weight:normal;
+    line-height:35px;
+}
+
+.shots hr{
+    margin-top:20px;
+    margin-bottom:20px;
+}
+
+.shots .shotcontent .shot-content-body i{
+    font-size:20px;
+    line-height:25px;
+    margin-right:5px;
+}
+
+.shots .shot-content-body p{
+    font-family: 'Open Sans', sans-serif !important;
+    line-height:28px !important;
+}
+
+.shots .shotcontent a.download{
+    color:#fff;
+    display:inline-block;
+    text-decoration:none;
+    font-size:17px;
+    font-weight:bold;
+    padding:0px 25px;
+    border-radius:5px;
+    background:#39a5e2;
+    line-height:50px;
+    box-shadow: 0 2px 0 0 rgba(255,255,255,0.2) inset,0 2px 3px rgba(0,0,0,0.3);
+    -webkit-transition: background 1s ease;
+   -moz-transition: background 1s ease;
+   -o-transition: background 1s ease;
+   -ms-transition: background 1s ease;
+   transition: background 1s ease;
+}
+
+.shots .shotcontent a.download:hover{
+    background:#1c97dd;
+    -webkit-transition: background 1s ease;
+   -moz-transition: background 1s ease;
+   -o-transition: background 1s ease;
+   -ms-transition: background 1s ease;
+   transition: background 1s ease;
+}
+
+/* Tablets */
+@media (max-width: 991px){
+    .shots{
+        text-align:center;
+        max-width:400px;
+        margin:0px auto;
+    }
+    
+    .shots .shotcontent a.download{
+        margin-bottom:20px;
+    }
+}
+
+// footer
+// -------------------------
+
+footer{
+    padding-top:30px;
+    background:#000 url('../images/3.png') repeat;
+    color:#ccc;
+}
+
+footer  a{
+    color:#aaa;
+}
+
+footer a:hover{
+    text-decoration:none;
+    color:#eee;
+}
+
+footer hr{
+    margin-top: 30px;
+    margin-bottom:30px;
+    border-top: #101010 1px solid;
+    border-bottom: #222 1px solid;
+}
+
+footer .footer-link{
+    padding-top:15px;
+}
+
+footer .footer-link h5{
+    color:#fff;
+    font-size:18px;
+}
+
+footer .footer-link a{
+    margin-bottom:10px;
+    display:inline-block;
+}
+
+footer .copy{
+    margin-bottom:20px;
+    font-size:13px;
+}
+
+/* Tablets */
+@media (max-width: 991px){
+    footer{
+        text-align:center;
+    }
+}

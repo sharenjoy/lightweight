@@ -26,7 +26,7 @@ module.exports = function (grunt) {
      */
     project: {
       app: 'app',
-      php: 'public',
+      cmsharenjoy: 'vendor/sharenjoy/cmsharenjoy/src',
       asset: 'assets',
       root: 'public',
       port: 80
@@ -150,7 +150,11 @@ module.exports = function (grunt) {
         }
       },
       php: {
-        files: ['<%= project.php %>/**/*.php'],
+        files: [
+          '<%= project.cmsharenjoy %>/**/*.php',
+          '<%= project.app %>/**/*.php',
+          '<%= project.root %>/**/*.php',
+        ],
         options: {
           livereload: true
         }
@@ -196,8 +200,6 @@ module.exports = function (grunt) {
    * Build for development
    */
   grunt.registerTask('dev', [
-    'compass:dev',
-    'open:server',
     'watch'
   ]);
 

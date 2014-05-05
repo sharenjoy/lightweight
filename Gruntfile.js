@@ -153,7 +153,7 @@ module.exports = function (grunt) {
         files: [
           '<%= project.cmsharenjoy %>/**/*.php',
           '<%= project.app %>/**/*.php',
-          '<%= project.root %>/**/*.php',
+          '<%= project.root %>/**/*.php'
         ],
         options: {
           livereload: true

@@ -5,6 +5,6 @@
     "jquery": "~1.11.*",
     "bootstrap-sass-official": "~3.2.*",
     "font-awesome": "~4.0.3",
-    "easy-files": "https://github.com/sharenjoy/easy-files.git#~1.0.0"
+    "easy-files": "https://github.com/sharenjoy/easy-files.git"
   }
 }

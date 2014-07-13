@@ -54,24 +54,24 @@ module.exports = function (grunt) {
     copy: {
       dev: {
         files: [
-          /*{
+          {
             expand: true,
             cwd: '<%= project.asset %>/vendor/easy-files/',
             src: ['**'],
             dest: '<%= project.root %>/'
-          },*/ {
+          }, {
             expand: true,
-            cwd: '<%= project.asset %>/vendor/bootstrap-sass-official/vendor/assets/javascripts/',
+            cwd: '<%= project.asset %>/vendor/bootstrap-sass-official/assets/javascripts/',
             src: ['**'],
             dest: '<%= project.root %>/js/'
           }, {
             expand: true,
-            cwd: '<%= project.asset %>/vendor/bootstrap-sass-official/vendor/assets/fonts/bootstrap/',
+            cwd: '<%= project.asset %>/vendor/bootstrap-sass-official/assets/fonts/bootstrap/',
             src: ['**'],
             dest: '<%= project.root %>/fonts/'
           }, {
             expand: true,
-            cwd: '<%= project.asset %>/vendor/bootstrap-sass-official/vendor/assets/stylesheets/bootstrap',
+            cwd: '<%= project.asset %>/vendor/bootstrap-sass-official/assets/stylesheets/',
             src: ['**'],
             dest: '<%= project.root %>/scss/bootstrap/'
           }, {

@@ -1,5 +1,11 @@
+/bootstrap/compiled.php
+/vendor
+/assets
+/node_modules
+/.sass-cache
+composer.phar
+composer.lock
+.env.*.php
+.env.php
 .DS_Store
-.sass-cache/
-assets/
-node_modules/
-public/
+Thumbs.db
